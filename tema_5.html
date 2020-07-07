@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css "
+      integrity="sha384Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div
+      class="card text-white bg-primary border-primary mb-3"
+      style="max-width: 40rem;"
+    >
+      <div class="card-header">BMI calculator</div>
+      <div class="card-body text-dark bg-light">
+        <div class="container">
+          <div class="row">
+            <div class="col"><h5>Height</h5></div>
+            <div class="col"></div>
+            <div class="col"><h5>Weight</h5></div>
+            <div class="w-100"></div>
+            <div class="col"><h6>Centimeters</h6></div>
+            <div class="col"></div>
+            <div class="col"><h6>Kg</h6></div>
+            <div class="w-100"></div>
+            <div class="col">
+              <input
+                id="height"
+                type="text"
+                class="form-control"
+                aria-label="Default"
+                aria-describedby="inputGroup-sizing-default"
+              />
+            </div>
+            <div class="col"></div>
+            <div class="col">
+              <input
+                id="weight"
+                type="text"
+                class="form-control"
+                aria-label="Default"
+                aria-describedby="inputGroup-sizing-default"
+              />
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col">
+              <button
+                id="calculate"
+                type="button"
+                class="btn btn-success btn-block"
+              >
+                Calculate
+              </button>
+            </div>
+            <div class="col result">
+              Result:
+            </div>
+            <div class="col">
+              <input
+                id="result"
+                type="text"
+                class="form-control"
+                aria-label="Default"
+                aria-describedby="inputGroup-sizing-default"
+                readonly="true"
+              />
+            </div>
+          </div>
+        </div>
+        <br />
+        <hr />
+        <div class="container" style="font-size: 0.75rem;">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Indice de masa corporala</th>
+                <th>Interpretare rezultat</th>
+                <th>Risc de boala</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="subp">
+                <td>18.49 sau mai putin</td>
+                <td>Subponderal</td>
+                <td>🗸</td>
+              </tr>
+              <tr class="norm">
+                <td>18.50 - 24.49</td>
+                <td>Greutate normala</td>
+                <td>Fara risc de boala</td>
+              </tr>
+              <tr class="supra">
+                <td>25.50 - 29.99</td>
+                <td>Supraponderal</td>
+                <td>🗸</td>
+              </tr>
+              <tr class="obez1">
+                <td>30.00 - 34.99</td>
+                <td>Obezitate (gradul I)</td>
+                <td>🗸</td>
+              </tr>
+              <tr class="obez2">
+                <td>35.00 - 39.99</td>
+                <td>Obezitate (gradul II)</td>
+                <td>🗸</td>
+              </tr>
+              <tr class="obezm">
+                <td>40.00 sau mai mult</td>
+                <td>Obezitate morbida</td>
+                <td>🗸</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script>
+      "use strict";
+      const bloc = document.querySelector("#result");
+      console.log(bloc);
+
+      document.querySelector("#calculate").addEventListener("click", () => {
+        let h = document.querySelector("#height").value;
+        let w = document.querySelector("#weight").value;
+        let bmi = (10000 * w) / (h * h);
+        console.log(bmi);
+
+        const listaClase = ["subp", "norm", "supra", "obez1", "obez2", "obezm"];
+        for (let clasa of listaClase) {
+          bloc.classList.remove(clasa);
+        }
+        if (bmi <= 18.49) bloc.classList.add("subp");
+        else if (bmi >= 18.5 && bmi <= 24.49) bloc.classList.add("norm");
+        else if (bmi >= 24.5 && bmi <= 29.99) bloc.classList.add("supra");
+        else if (bmi >= 30.0 && bmi <= 34.99) bloc.classList.add("obez1");
+        else if (bmi >= 35.0 && bmi <= 39.99) bloc.classList.add("obez2");
+        else if (bmi >= 40.0) bloc.classList.add("obezm");
+        document.querySelector("#result").value = Math.round(bmi);
+        console.log(bloc);
+      });
+    </script>
+  </body>
+</html>

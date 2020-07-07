@@ -1,0 +1,45 @@
+.card {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  border-width: 0.25rem;
+}
+.card-header {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.result {
+  text-align: right;
+  padding-right: 0px;
+  font-weight: bolder;
+}
+thead {
+  color: rgb(113, 113, 165);
+  background-color: rgb(233, 242, 245);
+}
+
+.subp {
+  color: orange;
+  background-color: rgb(238, 232, 232) !important;
+}
+.norm {
+  color: rgb(23, 82, 11);
+  background-color: rgb(63, 228, 63) !important;
+}
+.supra {
+  color: rgb(206, 136, 6);
+  background-color: rgb(245, 190, 108) !important;
+}
+.obez1 {
+  color: rgb(255, 255, 255);
+  background-color: rgb(236, 137, 91) !important;
+}
+.obez2 {
+  color: rgb(255, 255, 255);
+  background-color: rgb(235, 115, 60) !important;
+}
+.obezm {
+  color: rgb(255, 255, 255);
+  background-color: rgb(250, 53, 18);
+}
